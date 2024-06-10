@@ -1,0 +1,32 @@
+1. SSH installatin:
+sudo apt update
+sudo apt-get install ssh
+sudo systemctl status sshd
+cd /etc/ssh
+sudo nano sshd_config 
+ssh-keygen
+
+2. Creating new User
+sudo useradd NU -d /home/NU -m
+sudo nano /etc/sudoers
+
+User privilege specification
+NU ALL = (root) NOPASSWD: /sbin/route, /sbin/iptables, /usr/bin/nmap, usr/sbin/hping3
+NU ALL = (root) NOPASSWD: /usr/bin/systemctl
+NU ALL = (root) NOPASSWD: /sbin/ifup, /sbinifdown
+
+3. sudo nano /etc/pam.d/common-password
+password	[success=1 default=ignore]	pam_unix.so obscure sha512 minlen=8
+
+4. Java installation	
+sudo apt update
+sudo apt install default-jre
+
+5. Cron and Crontab
+sudo crontab -e
+0 04 * * 0 clamscan -r /
+0 23 1 * 6 freshclam
+
+6. sudo iptables -L
+sudo iptables -A INPUT -j DROP
+sudo iptables -A OUTPUT -j DROP
