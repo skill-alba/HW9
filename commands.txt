@@ -24,8 +24,8 @@ sudo apt install default-jre
 
 5. Cron and Crontab
 sudo crontab -e
-0 04 * * 0 clamscan -r /
-0 23 1 * 6 freshclam
+0 04 * * MON clamscan -r /
+0 23 1 * SUN freshclam
 
 6. sudo iptables -L
 sudo iptables -A INPUT -j DROP
